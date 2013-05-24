@@ -37,15 +37,31 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:/sbin:/usr/sbin:/usr/local/panda/bin:/home/jaffee/gradle/gradle-1.2/bin
 export LD_LIBRARY_PATH=/usr/local/share/panda/lib:$LD_LIBRARY_PATH
 export PYTHONPATH=$PYTHONPATH:/usr/local/share/panda/lib
+export PYTHONPATH=$PYTHONPATH:/home/jaffee/repos/blipp
 
-setxkbmap -option ctrl:nocaps
+if [ -n "$INSIDE_EMACS" ];
+then chpwd() { print -P "\033AnSiTc %d" }
+    print -P "\033AnSiTu %n"
+    print -P "\033AnSiTc %d"
+fi
+
+# setxkbmap -option ctrl:nocaps
+
+alias -r edit="~/bin/edit.sh"
+alias -r vim="~/bin/edit.sh"
+alias -r google-chrome="google-chrome --audio-buffer-size=2048"
+alias -r grep="grep -I --exclude-from='/home/jaffee/.grep-exclude'"
+alias -g rgcpnb="/home/jaffee/repos/GEMINI/contrib/periscope/newblipp/blipp"
+
+export EDITOR="~/bin/edit.sh"
+export VISUAL="~/bin/edit.sh"
 
 export HISTSIZE=40000000
 export SAVEHIST=40000000
 setopt INC_APPEND_HISTORY
 unsetopt SHARE_HISTORY
-ub-package () { tar zc ${1} | cat ${1}/ubuntu-install.sh - > ${1}.sh;} 
-fed-package () { tar zc ${1} | cat ${1}/fedora-install.sh - > ${1}.sh;}
+ub-package () { tar zc ${1} | cat ${1}/ubuntu-install.sh - > ${1}.sh;}
+fed-package () { tar zc ${1}/* | cat ${1}/fedora-install.sh - > ${1}.sh;}
 dispe () { disper -d DFP-4,CRT-0 -e -t right }
 setopt nocorrectall
 unsetopt CORRECT
