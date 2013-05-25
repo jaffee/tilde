@@ -18,4 +18,4 @@ while true; do
     sleep 6
 done &
 
-exec ssh-agent ~/scripts/startdwm
+exec ssh-agent ~/tilde/scripts/startdwm
