@@ -1,0 +1,8 @@
+[user]
+	name = mjaffee
+	email = mjaffee@indiana.edu
+[core]
+        editor = ~/bin/edit.sh
+[color]
+        diff = always
+        log  = always
