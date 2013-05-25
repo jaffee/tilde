@@ -13,4 +13,4 @@ def make_symlinks():
 
 if __name__ == "__main__":
     make_symlinks()
-    print "Don't forget to "
+    print("Don't forget to ")
