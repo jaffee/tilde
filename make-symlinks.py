@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python2
 import os
 
 def make_symlinks():
@@ -7,7 +7,10 @@ def make_symlinks():
     files = filter(lambda x: x.startswith(".") and not x==".git" and not x.endswith("~"), files)
     os.chdir(homedir)
     for file in files:
-        os.symlink(homedir + "/tilde/" + file, homedir + "/" + file)
+        try:
+            os.symlink(homedir + "/tilde/" + file, homedir + "/" + file)
+        except OSError as e:
+            print(e)
 
 
 
